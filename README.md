@@ -1,6 +1,6 @@
 # Conditional Wasserstein GAN with Gradient Penalty (WGAN-GP) for Animal Face Generation
 
-This project presents a Conditional Wasserstein Generative Adversarial Network with Gradient Penalty (WGAN-GP), trained on an animal faces dataset for 50 epochs. The model can generate novel images of different animal faces, demonstrating the impressive capability of WGANs for generating diverse and high-quality images.
+This project presents a Conditional Wasserstein Generative Adversarial Network with Gradient Penalty (WGAN-GP), trained on an animal faces dataset for 50 epochs. The model can generate novel images of different animal faces, although admittedly, there is much room for improvement in this model.
 
 ## Table of Contents
 
@@ -13,20 +13,23 @@ This project presents a Conditional Wasserstein Generative Adversarial Network w
 
 ## Background
 
-Generative Adversarial Networks (GANs) are powerful generative models that can learn to generate new samples from the same distribution as the training data. Wasserstein GANs with Gradient Penalty (WGAN-GP) are a type of GAN that uses the Wasserstein distance and a gradient penalty to stabilize the training process and generate higher-quality images. This project uses a WGAN-GP to generate novel animal face images. 
+Generative Adversarial Networks (GANs) are powerful generative models that can learn to generate new samples from the same distribution as the training data. However, GANs are notorious for being difficult to train. Issues such as mode collapse, unstable training dynamics, and the difficulty of balancing the generator and discriminator networks are common. Wasserstein GANs with Gradient Penalty (WGAN-GP) are a type of GAN that uses the Wasserstein distance and a gradient penalty to stabilize the training process and generate higher-quality images. This project uses a WGAN-GP to generate novel animal face images. Admittedly, initial experiments did not produce amazing results, but with a well-thought-out architecture and appropriate hyperparameter tuning, improvements can be made.
 
-![image](https://github.com/YourUsername/WGAN-GP_AnimalFaces/assets/XXXXXX/XXXXXX)
 
 ## Project Description
 
-The model is trained on an animal faces dataset, which contains images of various animal faces. The training was performed for 50 epochs.
+The model is trained on an animal faces dataset, which contains images of various animal faces. The training was performed for 50 epochs. Despite the challenges inherent in training GANs, the project strives to push the envelope and generate convincing images of animal faces.
 
 This project includes an interesting feature:
-- A conditional model architecture that allows generation of images of specific classes of animals by conditioning the generator and discriminator on the class labels. 
+
+A conditional model architecture that allows generation of images of specific classes of animals by conditioning the generator and discriminator on the class labels.
+The architecture is robust, but it's worth noting that GANs require careful hyperparameter tuning and may need minor tweaks to the architecture such as dropout, batch normalization, and different upsampling techniques.
 
 ## Model Architecture
 
-The architecture of the conditional WGAN-GP consists of a Generator and a Discriminator (or Critic), both of which are conditioned on the class labels of the images.
+The architecture of the conditional WGAN-GP consists of a Generator and a Discriminator (or Critic), both of which are conditioned on the class labels of the images. Below is a general architecture of a GANs model:
+
+![image](https://github.com/DimensionDweller/Conditional_WGAN-CP_Implimentation/assets/75709283/eebdd218-6d36-460a-9bad-c5b395b8009f)
 
 ### Generator
 The Generator takes a noise vector and a class label as input, and generates an image of the corresponding class. The class label is embedded and concatenated with the noise vector to condition the generation process.
@@ -68,34 +71,14 @@ $$
 L_{\text{Discriminator}} = L_{\text{Wasserstein}} + \lambda_{\text{GP}} L_{\text{GP}} + \lambda L_{\text{AC}}
 $$
 
-where \(\lambda\) and \(\lambda_{\text{GP}}\) are the weighting factors for the auxiliary classifier loss and the gradient penalty, respectively.
-
-Please note that for rendering in GitHub, the LaTex needs to be surrounded by single dollar signs for inline equations and double dollar signs for standalone equations. The updated equations are given below:
-
-1. **Wasserstein loss**: 
-
-   $$L_{\text{Wasserstein}} = E_{x \sim P_{\text{real}}} [D(x)] - E_{z \sim P_z} [D(G(z))]$$
-
-2. **Gradient penalty**: 
-
-   $$L_{\text{GP}} = E_{\hat{x} \sim P_{\hat{x}}} \left[ \left( ||\nabla_{\hat{x}} D(\hat{x})||_2 - 1 \right)^2 \right]$$
-
-3. **Auxiliary classifier loss**: 
-
-   $$L_{\text{AC}} = E_{x \sim P_{\text{real}}, y \sim P_y} [-y \log(D_y(x)) - (1-y) \log(1-D_y(x))]$$
-
-The total loss for the generator and the discriminator is a weighted sum of these three terms:
-
-$$L_{\text{Generator}} = -L_{\text{Wasserstein}} + \lambda L_{\text{AC}}$$
-
-$$L_{\text{Discriminator}} = L_{\text{Wasserstein}} + \lambda_{\text{GP}} L_{\text{GP}} + \lambda L_{\text{AC}}$$
-
+where $\(\lambda\)$ and $\(\lambda_{\text{GP}}\)$ are the weighting factors for the auxiliary classifier loss and the gradient penalty, respectively.
 
 This architecture was chosen because the WGAN-GP algorithm has been shown to be effective for training GANs, and the conditional model architecture allows the generation of images of specific classes.
 
 ## Results
 
-![image](https://github.com/YourUsername/WGAN-GP_AnimalFaces/assets/XXXXXX/XXXXXX)
+![image](https://github.com/DimensionDweller/Conditional_WGAN-CP_Implimentation/assets/75709283/34d180ed-dca5-41a8-b40c-143baefeb535)
+
 
 ## Usage
 
@@ -133,4 +116,4 @@ Generative Adversarial Networks (GANs) are powerful tools for generating new dat
 
 In future work, it would be interesting to explore other conditioning methods, such as the Projection Discriminator or the Auxiliary Classifier GAN (AC-GAN). Furthermore, other types of data, such as text or audio, could also be generated using a similar approach.
 
-To conclude, while GANs can be challenging to train, the WGAN-GP algorithm and the use of conditioning provide effective solutions to these challenges. With these tools, GANs can be used to generate diverse and high-quality images.
+To conclude, while GANs can be challenging to train, the WGAN-GP algorithm and the use of conditioning provide effective solutions to these challenges. It's important to note that while initial results may not be perfect, the potential of GANs is vast and with continued experimentation and refinement, impressive results can be achieved. With these tools, GANs can be used to generate diverse and high-quality images.
