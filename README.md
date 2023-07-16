@@ -42,39 +42,60 @@ The loss function used for training the WGAN-GP is composed of three terms:
 
 1. **Wasserstein loss**: This is the difference between the average discriminator outputs for real and fake images. It encourages the discriminator to distinguish between real and fake images, and the generator to generate realistic images. Mathematically, the Wasserstein loss can be represented as follows:
 
-   \[
+   $$
    L_{\text{Wasserstein}} = E_{x \sim P_{\text{real}}} [D(x)] - E_{z \sim P_z} [D(G(z))]
-   \]
+   $$
 
    where \(E\) is the expectation, \(x\) are the real images, \(P_{\text{real}}\) is the data distribution, \(z\) are the noise samples, \(P_z\) is the noise distribution, \(D\) is the discriminator, and \(G\) is the generator.
 
 2. **Gradient penalty**: This is a penalty term that encourages the gradients of the discriminator outputs with respect to the images to have a norm of 1. This helps to enforce the Lipschitz constraint and stabilize the training process. The gradient penalty is defined as:
 
-   \[
+   $$
    L_{\text{GP}} = E_{\hat{x} \sim P_{\hat{x}}} \left[ \left( ||\nabla_{\hat{x}} D(\hat{x})||_2 - 1 \right)^2 \right]
-   \]
+   $$
 
    where \(\hat{x}\) are the interpolated samples between real and generated images, \(P_{\hat{x}}\) is the interpolated distribution, and \(\nabla_{\hat{x}}\) is the gradient with respect to \(\hat{x}\).
 
 3. **Auxiliary classifier loss**: This is the cross-entropy loss between the predicted and true class labels. It encourages the discriminator to correctly classify the images, and the generator to generate images of the correct class. The auxiliary classifier loss is given by:
 
-   \[
+   $$
    L_{\text{AC}} = E_{x \sim P_{\text{real}}, y \sim P_y} [-y \log(D_y(x)) - (1-y) \log(1-D_y(x))]
-   \]
+   $$
 
    where \(y\) are the class labels, \(P_y\) is the class distribution, and \(D_y\) is the discriminator's classification output.
 
 The total loss for the generator and the discriminator is a weighted sum of these three terms:
 
-\[
+$$
 L_{\text{Generator}} = -L_{\text{Wasserstein}} + \lambda L_{\text{AC}}
-\]
+$$
 
-\[
+$$
 L_{\text{Discriminator}} = L_{\text{Wasserstein}} + \lambda_{\text{GP}} L_{\text{GP}} + \lambda L_{\text{AC}}
-\]
+$$
 
 where \(\lambda\) and \(\lambda_{\text{GP}}\) are the weighting factors for the auxiliary classifier loss and the gradient penalty, respectively.
+
+Please note that for rendering in GitHub, the LaTex needs to be surrounded by single dollar signs for inline equations and double dollar signs for standalone equations. The updated equations are given below:
+
+1. **Wasserstein loss**: 
+
+   $$L_{\text{Wasserstein}} = E_{x \sim P_{\text{real}}} [D(x)] - E_{z \sim P_z} [D(G(z))]$$
+
+2. **Gradient penalty**: 
+
+   $$L_{\text{GP}} = E_{\hat{x} \sim P_{\hat{x}}} \left[ \left( ||\nabla_{\hat{x}} D(\hat{x})||_2 - 1 \right)^2 \right]$$
+
+3. **Auxiliary classifier loss**: 
+
+   $$L_{\text{AC}} = E_{x \sim P_{\text{real}}, y \sim P_y} [-y \log(D_y(x)) - (1-y) \log(1-D_y(x))]$$
+
+The total loss for the generator and the discriminator is a weighted sum of these three terms:
+
+$$L_{\text{Generator}} = -L_{\text{Wasserstein}} + \lambda L_{\text{AC}}$$
+
+$$L_{\text{Discriminator}} = L_{\text{Wasserstein}} + \lambda_{\text{GP}} L_{\text{GP}} + \lambda L_{\text{AC}}$$
+
 
 This architecture was chosen because the WGAN-GP algorithm has been shown to be effective for training GANs, and the conditional model architecture allows the generation of images of specific classes.
 
