@@ -54,7 +54,7 @@ The loss function used for training the WGAN-GP is composed of three terms:
    L_{\text{GP}} = E_{\hat{x} \sim P_{\hat{x}}} \left[ \left( ||\nabla_{\hat{x}} D(\hat{x})||_2 - 1 \right)^2 \right]
    $$
 
-   where \(\hat{x}\) are the interpolated samples between real and generated images, \(P_{\hat{x}}\) is the interpolated distribution, and \(\nabla_{\hat{x}}\) is the gradient with respect to \(\hat{x}\).
+   where $\(\hat{x}\)$ are the interpolated samples between real and generated images, \(P_{\hat{x}}\) is the interpolated distribution, and \(\nabla_{\hat{x}}\) is the gradient with respect to \(\hat{x}\).
 
 3. **Auxiliary classifier loss**: This is the cross-entropy loss between the predicted and true class labels. It encourages the discriminator to correctly classify the images, and the generator to generate images of the correct class. The auxiliary classifier loss is given by:
 
