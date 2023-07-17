@@ -19,9 +19,9 @@ Generative Adversarial Networks (GANs) are powerful generative models that can l
 
 ## Project Description
 
-The model is trained on an animal faces dataset, which contains images of various animal faces. The training was performed for 50 epochs. Despite the challenges inherent in training GANs, the project strives to push the envelope and generate convincing images of animal faces.
+The model is trained on an animal faces dataset, which contains images of various animal faces. The training was performed for 50 epochs. 
 
-This project includes an interesting feature:
+This project includes:
 
 A conditional model architecture that allows generation of images of specific classes of animals by conditioning the generator and discriminator on the class labels.
 The architecture is robust, but it's worth noting that GANs require careful hyperparameter tuning and may need minor tweaks to the architecture such as dropout, batch normalization, and different upsampling techniques.
@@ -78,7 +78,8 @@ This architecture was chosen because the WGAN-GP algorithm has been shown to be 
 
 ## Results
 
-![image](https://github.com/DimensionDweller/Conditional_WGAN-CP_Implimentation/assets/75709283/34d180ed-dca5-41a8-b40c-143baefeb535)
+![image](https://github.com/DimensionDweller/Conditional_WGAN-CP_Implimentation/assets/75709283/47c20180-0fba-42d0-a8db-636de9ed873b)
+
 
 
 ## Usage
