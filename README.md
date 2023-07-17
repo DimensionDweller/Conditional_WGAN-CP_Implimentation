@@ -126,7 +126,9 @@ Jolicoeur-Martineau, A., & Mitliagkas, I. (2019). Gradient penalty from a maximu
 Shi, Y., Li, Q., & Zhu, X. X. (2018). Building Footprint Generation Using Improved Generative Adversarial Networks. Retrieved from http://arxiv.org/abs/1810.11224v1
 
 Terjék, D. (2019). Adversarial Lipschitz Regularization. Retrieved from http://arxiv.org/abs/1907.05681v3
-Luleci, F., Catbas, F. N., & Avci, O. (2021). Generative Adversarial Networks for Data Generation in Structural Health Monitoring. Retrieved from http://arxiv.org/abs/2112.08196v2
+Luleci, F., Catbas, F. N., & Avci, O. (2021). 
+
+Generative Adversarial Networks for Data Generation in Structural Health Monitoring. Retrieved from http://arxiv.org/abs/2112.08196v2
 
 Xia, T. (2023). Penalty Gradient Normalization for Generative Adversarial Networks. Retrieved from http://arxiv.org/abs/2306.13576v1
 
