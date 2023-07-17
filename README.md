@@ -10,6 +10,7 @@ This project presents a Conditional Wasserstein Generative Adversarial Network w
 - [Results](#results)
 - [Usage](#usage)
 - [Future Work](#future-work)
+- [Sources](#sources)
 
 ## Background
 
@@ -117,3 +118,15 @@ Generative Adversarial Networks (GANs) are powerful tools for generating new dat
 In future work, it would be interesting to explore other conditioning methods, such as the Projection Discriminator or the Auxiliary Classifier GAN (AC-GAN). Furthermore, other types of data, such as text or audio, could also be generated using a similar approach.
 
 To conclude, while GANs can be challenging to train, the WGAN-GP algorithm and the use of conditioning provide effective solutions to these challenges. It's important to note that while initial results may not be perfect, the potential of GANs is vast and with continued experimentation and refinement, impressive results can be achieved. With these tools, GANs can be used to generate diverse and high-quality images.
+
+## Sources
+
+Jolicoeur-Martineau, A., & Mitliagkas, I. (2019). Gradient penalty from a maximum margin perspective. Retrieved from http://arxiv.org/abs/1910.06922v2
+
+Shi, Y., Li, Q., & Zhu, X. X. (2018). Building Footprint Generation Using Improved Generative Adversarial Networks. Retrieved from http://arxiv.org/abs/1810.11224v1
+
+Terjék, D. (2019). Adversarial Lipschitz Regularization. Retrieved from http://arxiv.org/abs/1907.05681v3
+Luleci, F., Catbas, F. N., & Avci, O. (2021). Generative Adversarial Networks for Data Generation in Structural Health Monitoring. Retrieved from http://arxiv.org/abs/2112.08196v2
+
+Xia, T. (2023). Penalty Gradient Normalization for Generative Adversarial Networks. Retrieved from http://arxiv.org/abs/2306.13576v1
+
