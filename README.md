@@ -14,17 +14,26 @@ This project presents a Conditional Wasserstein Generative Adversarial Network w
 
 ## Background
 
-Generative Adversarial Networks (GANs) are powerful generative models that can learn to generate new samples from the same distribution as the training data. However, GANs are notorious for being difficult to train. Issues such as mode collapse, unstable training dynamics, and the difficulty of balancing the generator and discriminator networks are common. Wasserstein GANs with Gradient Penalty (WGAN-GP) are a type of GAN that uses the Wasserstein distance and a gradient penalty to stabilize the training process and generate higher-quality images. This project uses a WGAN-GP to generate novel animal face images. Admittedly, initial experiments did not produce amazing results, but with a well-thought-out architecture and appropriate hyperparameter tuning, improvements can be made.
+Generative Adversarial Networks (GANs) are powerful generative models that can learn to generate new samples from the same distribution as the training data. However, GANs are notorious for being difficult to train. Issues such as mode collapse, unstable training dynamics, and the difficulty of balancing the generator and discriminator networks are common. Wasserstein GANs with Gradient Penalty (WGAN-GP) are a type of GAN that uses the Wasserstein distance and a gradient penalty to stabilize the training process and (hopefully) generate higher-quality images. This project provides an implimentation of WGAN-GP to generate novel animal face images conditioned on 3 classes (Cat, Dog, Wild). Admittedly, initial experiments did not produce amazing results, but with minor tweaks to the architecture and appropriate hyperparameter tuning, improvements can be made.
 
 
 ## Project Description
 
-The model is trained on an animal faces dataset, which contains images of various animal faces. The training was performed for 50 epochs. 
+The goal of this project is to implement a robust GANs architecture that leverages the Wasserstein distance with gradient penalty to provide stability and efficiency in training. By conditioning the GAN on specific animal classes, we aim to generate diverse and realistic animal face images that correspond to the given class labels.
 
 This project includes:
 
 A conditional model architecture that allows generation of images of specific classes of animals by conditioning the generator and discriminator on the class labels.
 The architecture is robust, but it's worth noting that GANs require careful hyperparameter tuning and may need minor tweaks to the architecture such as dropout, batch normalization, and different upsampling techniques.
+
+### Dataset Overview
+The conditioned WGAN-GP model is trained and validated on the Animal Faces Dataset obtained from Kaggle. Comprising over 16,000 color images, this dataset encompasses three prominent classes: Cat, Dog, and Wild (including species such as foxes and lions). Key characteristics of the dataset include:
+
+- **Content**: 16,000+ images distributed across the defined classes.
+- **Resolution**: Uniform resizing to standardized dimensions (e.g., 64x64 pixels) facilitates model training.
+- **Class Distribution**: Balanced class allocation minimizes bias and enriches feature learning across categories.
+- **Preprocessing**: Normalization and augmentation techniques like rotation and flipping are applied during the pre-processing step to enhance model robustness.
+- **Use Case Alignment**: The categorical nature of the dataset aligns with the project's objective of class-specific animal face generation, enabling nuanced feature and texture learning.
 
 ## Model Architecture
 
