@@ -42,12 +42,17 @@ The architecture of the conditional WGAN-GP consists of a Generator and a Discri
 ![image](https://github.com/DimensionDweller/Conditional_WGAN-CP_Implimentation/assets/75709283/eebdd218-6d36-460a-9bad-c5b395b8009f)
 
 ### Generator
-The Generator takes a noise vector and a class label as input, and generates an image of the corresponding class. The class label is embedded and concatenated with the noise vector to condition the generation process.
+The Generator constitutes a crucial part of the conditioned WGAN-GP architecture, designed to synthesize images corresponding to specific animal classes. It accepts a noise vector and a class label as inputs. The class label undergoes an embedding process to translate it into a continuous space, and the resulting vector is concatenated with the noise vector. This conditioning mechanism allows the generation process to be guided by the desired class.
+
+The architecture of the generator consists of several transposed convolutional layers, each followed by batch normalization and leaky ReLU activation functions. The transposed convolutional layers incrementally upscale the spatial dimensions, transforming the noise vector into an image. The final layer employs a hyperbolic tangent (tanh) activation function to constrain the pixel values within a suitable range. The complexity and depth of the generator's architecture enable the capturing of intricate features and patterns relevant to the specified class.
 
 ### Discriminator
-The Discriminator takes an image and a class label as input, and outputs a single scalar value that indicates whether the image is real or fake. The class label is embedded and concatenated with the image to condition the discrimination process.
+The Discriminator plays a complementary role to the generator, tasked with evaluating the authenticity of images and conditioning the evaluation process on specific class labels. It receives an image and a corresponding class label as input. Similar to the generator, the class label is embedded and concatenated with the image, allowing the discriminator to consider the class information in its evaluation.
 
-The generator and discriminator architectures consist of a series of convolutional and transposed convolutional layers, respectively, with batch normalization and leaky ReLU activation functions.
+The discriminator's architecture consists of a series of convolutional layers, each accompanied by leaky ReLU activation functions and batch normalization. These layers progressively downscale the spatial dimensions of the input, culminating in a dense layer that outputs a single scalar value. This value signifies the Wasserstein distance and reflects the discriminator's assessment of whether the image is real or fake.
+
+The integration of the class label into both the generator and discriminator enables the conditioned WGAN-GP model to generate and discriminate images based on specific classes. The convolutional and transposed convolutional layers, supplemented with batch normalization and leaky ReLU activations, facilitate the learning of complex spatial hierarchies and contribute to the stability and efficiency of the training process.
+
 
 ## Loss Function
 
